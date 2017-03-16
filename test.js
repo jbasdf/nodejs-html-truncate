@@ -212,4 +212,13 @@ describe('truncate', function() {
     assert.strictEqual(expect, actual);
   });
 
+  it('should handle attributes along with attributes with no values', function() {
+    var input, expect, actual;
+
+    input  = 'hello<iframe width="560" height="315" src="//www.youtube.com/embed/asdf" frameborder="0" allowfullscreen></iframe>world';
+    actual = truncate(input, 8);
+    expect = 'hello<iframe width="560" height="315" src="//www.youtube.com/embed/asdf" frameborder="0" allowfullscreen></iframe>wor...';
+    assert.strictEqual(expect, actual);
+  });
+
 });
